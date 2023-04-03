@@ -1,2 +1,4 @@
 # :fzf-tab:complete:gh:
-gh help $word | bat --color=always -plhelp
+query="$words$word"
+query=${${query%%--*}%% } # remove options and trailing space
+eval "$query --help" | bat --color=always -plhelp
