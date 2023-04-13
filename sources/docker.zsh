@@ -1,2 +1,4 @@
-# :fzf-tab:complete:((\\|*/|)docker|docker-help):argument-1
-docker help $word | bat --color=always -plhelp
+# :fzf-tab:complete:docker:*
+query="$words$word"
+query=${${query%%--*}%% } # remove options and trailing space
+eval "$query --help" | bat --color=always -plhelp
