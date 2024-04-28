@@ -14,10 +14,8 @@ case $group in
   (out=$(which "$word") && echo $out) ||\
   echo "$word"
   ;;
-'[reserved word]')
-  (out=$(tldr "$word") 2>/dev/null && echo $out) ||\
-  (out=$(man $word) 2>/dev/null && echo $out) ||\
-  echo reserved word - $word | bat --color=always -pl zsh
+'builtin command')
+  run-help $word | bat -lman
   ;;
 '[parameter]')
   echo ${(P)word} | bat --color=always -pl zsh

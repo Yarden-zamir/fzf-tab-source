@@ -1,15 +1,12 @@
 # :fzf-tab:complete:git-checkout:argument-rest
 case $group in
 'modified file')
-  git diff $word | delta
+  git diff $realpath
   ;;
 'recent commit object name')
-  git log --color=always $word |
-    perl -pe' '$(jq -j '.[] | "s=\(.code)=\(.emoji)=g;"' ~/.gitmoji/gitmojis.json) |
-    delta
+  git diff --color=always $word
   ;;
 *)
-  git log --color=always $word |
-    perl -pe' '$(jq -j '.[] | "s=\(.code)=\(.emoji)=g;"' ~/.gitmoji/gitmojis.json)
+  git log --color=always $realpath
   ;;
 esac

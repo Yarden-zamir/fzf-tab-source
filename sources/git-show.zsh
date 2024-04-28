@@ -1,9 +1,9 @@
 # :fzf-tab:complete:git-show:argument-rest
 case $group in
-'commit tag')
-  git show --color=always $word
+'cached file')
+  less $realpath
   ;;
 *)
-  git show --color=always $word | delta
+  git show --color=always $word
   ;;
 esac
