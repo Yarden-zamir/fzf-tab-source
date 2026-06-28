@@ -1,3 +1,2 @@
-# :fzf-tab:complete:(\\|*/|)gio:
-[[ -f $realpath ]] && less $realpath ||
-  gio help $word 2>&1 | bat -lhelp
+# :fzf-tab:complete:(\\|*/|)gio:argument-1
+gio help $word | bat -lhelp
